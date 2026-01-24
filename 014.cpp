@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  const int limit = 1000000;
+  int ans = 1;
+  int bestLen = 1;
+
+  for (int i = 1; i < limit; i++) {
+    ll n = i;
+    ll len = 1;
+
+    while (n != 1) {
+      if (n % 2 == 0) {
+        n /= 2;
+      } else {
+        n = 3 * n + 1;
+      }
+      len++;
+    }
+
+    if (len > bestLen) {
+      bestLen = len;
+      ans = i;
+    }
+  }
+
+  cout << ans << "\n";
+  return 0;
+}
